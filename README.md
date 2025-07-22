@@ -136,11 +136,19 @@ ansible-playbook -i inventory.ini playbook.yaml
 
 ---
 
-## 🖼️ Screenshots
+## 🖼️ Windows Screenshots
 
 | Node 1 Server | Node 2 Server | Output |
 |---------------|---------------|--------|
 | ![Node1](images/node1-server.png) | ![Node2](images/node2-server.png) | ![Output](images/output.png) |
+
+---
+
+## 🖼️ Curl Screenshots
+
+| Curl Node 1 | Curl Node 2 |
+|------------|-------------|
+| ![CurlNode1](images/curl-Node1.png) | ![CurlNode2](images/curl-Node2.png) |
 
 ---
 
