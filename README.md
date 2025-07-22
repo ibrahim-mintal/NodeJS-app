@@ -140,7 +140,7 @@ ansible-playbook -i inventory.ini playbook.yaml
 
 | Node 1 Server | Node 2 Server | Output |
 |---------------|---------------|--------|
-| ![Node1](images/node1-server.png) | ![Node2](images/node2-server.png) | ![Output](images/output.png) |
+| ![Node1](images/node1.png) | ![Node2](images/node2.png) | ![Output](images/output.png) |
 
 ---
 
