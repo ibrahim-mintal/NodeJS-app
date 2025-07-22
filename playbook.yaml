@@ -1,0 +1,36 @@
+---
+- name: Deploy NodeJS Application on Remote Nodes
+  hosts: debian
+  become: yes
+  tasks:
+
+    - name: Create a new directory for the application
+      ansible.builtin.file:
+        path: /home/ansible/myapp
+        state: directory
+
+    - name: Copy the NodeJS application package to the remote nodes
+      ansible.builtin.copy:
+        src: /home/ansible/task2/nodejs-app-1.0.0.tgz
+        dest: /home/ansible/myapp/
+
+    - name: Extract the NodeJS application package
+      ansible.builtin.unarchive:
+        src: /home/ansible/myapp/nodejs-app-1.0.0.tgz
+        dest: /home/ansible/myapp/
+        remote_src: yes
+
+    - name: Install Application Dependencies (NodeJS and npm)
+      ansible.builtin.apt:
+        update_cache: yes     # Equivalent to apt-get update
+        pkg:
+        - nodejs
+        - npm
+    - name: Install npm
+      community.general.npm:
+        path: /home/ansible/myapp/package/
+
+    - name: Run npm start in background
+      ansible.builtin.shell:
+        cmd: nohup npm start &
+        chdir: /home/ansible/myapp/package/
